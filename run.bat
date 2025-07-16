@@ -1,0 +1,1 @@
+pyinstaller .\downloader.py --onefile --distpath bin --workpath bin-int --add-data "downloader.ini;."c
