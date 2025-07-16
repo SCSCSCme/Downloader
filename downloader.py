@@ -476,7 +476,7 @@ def download_single_thread(url: str, output_path: str, config: dict) -> bool:
     
     return False
 
-def download_file(url: str, output_path: Optional[str] = None, num_threads: Optional[int] = None, 
+def download_file(url: str, output_path: str = "Downloads/", num_threads: int = 8, 
                  resume: bool = False, expected_hash: Optional[str] = None, 
                  hash_algorithm: str = 'md5') -> bool:
     """主下载函数，支持中断处理，返回是否成功"""
