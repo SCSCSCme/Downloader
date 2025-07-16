@@ -36,7 +36,7 @@ def signal_handler(signum, frame):
 def load_config() -> dict:
     """加载配置文件，增加存在性检查"""
     config = configparser.ConfigParser()
-    config_path = '.\\downloader.ini'
+    config_path = 'downloader.ini'
     
     if not os.path.exists(config_path):
         print(f"警告：未找到配置文件 {config_path}，使用默认配置")
@@ -747,6 +747,3 @@ def main():
     else:
         print("下载失败！")
         sys.exit(1)
-
-if __name__ == "__main__":
-    main()
