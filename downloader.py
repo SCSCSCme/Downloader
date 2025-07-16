@@ -36,7 +36,7 @@ def signal_handler(signum, frame):
 def load_config() -> dict:
     """加载配置文件，增加存在性检查"""
     config = configparser.ConfigParser()
-    config_path = 'downloader.ini'
+    config_path = '.\\downloader.ini'
     
     if not os.path.exists(config_path):
         print(f"警告：未找到配置文件 {config_path}，使用默认配置")
@@ -462,12 +462,12 @@ def download_single_thread(url: str, output_path: str, config: dict) -> bool:
         
     except requests.exceptions.MissingSchema:
         print("错误: 无效的URL格式，请包含协议（如https://）")
+    except requests.exceptions.SSLError:
+        print("SSL证书验证失败，可在配置文件中设置verify_ssl=false尝试绕过（不推荐）")
     except requests.exceptions.ConnectionError:
         print("错误: 无法连接到服务器，请检查网络和URL")
     except requests.exceptions.HTTPError as e:
         print(f"HTTP错误: {str(e)}")
-    except requests.exceptions.SSLError:
-        print("SSL证书验证失败，可在配置文件中设置verify_ssl=false尝试绕过（不推荐）")
     except Exception as e:
         print(f"下载过程出错: {str(e)}")
     finally:
