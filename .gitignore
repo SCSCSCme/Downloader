@@ -3,3 +3,4 @@ bin-int/
 downloader.spec
 .vscode/
 Output/
+__pycache__
