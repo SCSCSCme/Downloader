@@ -1,6 +1,7 @@
 bin/
 bin-int/
 downloader.spec
+main.spec
 .vscode/
 Output/
 __pycache__
